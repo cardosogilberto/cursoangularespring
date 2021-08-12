@@ -1,3 +1,4 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
@@ -22,6 +23,13 @@ export class LoginComponent {
   ) { }
 
   onSubmit() {
+    this.authService
+      .tentarlogar(this.username, this.password)
+      .subscribe(Response => {
+        this.router.navigate(['/home'])
+      }, errorResponse => {
+        this.errors = ['Usuario e/ou senha incorreto(s).']
+      })
     console.log(`User: ${this.username}, Pass: ${this.password}`)
   }
 
@@ -45,7 +53,7 @@ export class LoginComponent {
         this.cadastrando = false;
         this.username = '';
         this.password = '';
-        this.errors=[];
+        this.errors = [];
       }, errorResponse => {
         this.mensagemSucesso = null;
         this.errors = errorResponse.error.errors;
