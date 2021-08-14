@@ -21,6 +21,7 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     return true;
+
   }
 
   salvar(usuario: Usuario): Observable<any> {
