@@ -9,10 +9,15 @@ import { Cliente } from '../cliente';
 export class ClientesFormComponent implements OnInit {
 
   cliente: Cliente;
+  nome: string = 'PropertyBinding';
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  clicar() {
+    console.log("cliquei");
   }
 
 }
