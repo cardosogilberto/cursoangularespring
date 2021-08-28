@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Cliente } from './clientes/cliente';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,5 +15,10 @@ export class ClientesService {
     cliente.nome = 'Fulano de tal';
     cliente.cpf = '888888888';
     return cliente;
+  }
+
+  salvar(cliente: Cliente): Observable<Cliente> {
+    return this.http.post<Cliente>('http://localhost:8080/sistemas-vendas/api/clientes', cliente);
+
   }
 }
