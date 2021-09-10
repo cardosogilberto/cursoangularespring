@@ -18,7 +18,10 @@ export class ClientesService {
   }
 
   salvar(cliente: Cliente): Observable<Cliente> {
-    return this.http.post<Cliente>('http://localhost:8080/sistemas-vendas/api/clientes', cliente);
+    return this.http.post<Cliente>('http://localhost:8081/sistemas-vendas/api/clientes', cliente);
+  }
 
+  getClientes(): Observable<Cliente[]> {
+    return null;
   }
 }

@@ -11,6 +11,8 @@ export class ClientesFormComponent implements OnInit {
 
   cliente: Cliente;
   nome: string = 'PropertyBinding';
+  success: boolean = false;
+  errors: string[];
 
   constructor(private service: ClientesService) {
     this.cliente = new Cliente();
@@ -23,7 +25,10 @@ export class ClientesFormComponent implements OnInit {
     this.service
       .salvar(this.cliente)
       .subscribe(response => {
-        console.log(response)
+        this.success = true;
+        this.errors = null;
+      }, errorResponse => {
+        this.errors = errorResponse.error.errors;
       })
   }
 
