@@ -22,6 +22,6 @@ export class ClientesService {
   }
 
   getClientes(): Observable<Cliente[]> {
-    return null;
+    return this.http.get<Cliente[]>('http://localhost:8081/sistemas-vendas/api/clientes');
   }
 }
