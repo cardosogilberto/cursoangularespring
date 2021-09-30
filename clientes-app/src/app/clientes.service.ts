@@ -32,4 +32,8 @@ export class ClientesService {
   getClientesById(id: number): Observable<Cliente> {
     return this.http.get<any>(`http://localhost:8081/sistemas-vendas/api/clientes/${id}`);
   }
+
+  deletar(cliente: Cliente): Observable<any> {
+    return this.http.delete<any>(`http://localhost:8081/sistemas-vendas/api/clientes/${cliente.id}`);
+  }
 }
