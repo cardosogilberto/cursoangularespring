@@ -9,7 +9,7 @@ import { environment } from '../environments/environment';
 })
 export class ServicoPrestadoService {
 
-  apiURL: string = environment.apiURLBase + '/api/servico-prestados'
+  apiURL: string = environment.apiURLBase + '/api/servicos-prestados'
 
   constructor(private http: HttpClient) { }
 
