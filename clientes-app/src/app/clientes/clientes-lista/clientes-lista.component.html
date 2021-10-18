@@ -42,7 +42,7 @@
             <td>{{ cliente.cpf }}</td>
             <td>{{ cliente.dataCadastro }}</td>
             <td>
-              <button class="btn btn-primary" routerLink="/clientes-form/{{ cliente.id }}">
+              <button class="btn btn-primary" routerLink="/clientes/form/{{ cliente.id }}">
                 <i class="fa fa-edit"></i>
               </button>
 
@@ -67,8 +67,7 @@
             Confirma a exclusão do(a) Cliente {{ clienteSelecionado.nome }}?
           </div>
           <div class="modal-footer">
-            <button class="btn btn-success" (click)="deletarCliente()"
-                    data-dismiss="modal">Confirmar</button>
+            <button class="btn btn-success" (click)="deletarCliente()" data-dismiss="modal">Confirmar</button>
             <button class="btn btn-default" data-dismiss="modal">Cancelar</button>
           </div>
         </div>
