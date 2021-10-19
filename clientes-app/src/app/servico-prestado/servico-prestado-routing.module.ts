@@ -8,7 +8,7 @@ const routes: Routes = [
   {
     path: 'servicos-prestados', component: LayoutComponent, children: [
       { path: 'form', component: ServicoPrestadoFormComponent },
-      { path: 'listagem', component: ServicoPrestadoListaComponent },
+      { path: 'lista', component: ServicoPrestadoListaComponent },
       { path: '', redirectTo: '/servicos-prestados/lista', pathMatch: 'full' }
     ]
   }
