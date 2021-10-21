@@ -3,6 +3,7 @@ import { Cliente } from './clientes/cliente';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../environments/environment'
+import { tokenName } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,12 @@ export class ClientesService {
   }
 
   salvar(cliente: Cliente): Observable<Cliente> {
-    return this.http.post<Cliente>(`${this.apiURL}`, cliente);
+    const tokenString = localStorage.getItem('access_token')
+    const token = JSON.parse(tokenString)
+    const headers = {
+      'Authorization': 'Bearer ' + token.access_token
+    }
+    return this.http.post<Cliente>(`${this.apiURL}`, cliente, { headers });
   }
 
   atualizar(cliente: Cliente): Observable<any> {
@@ -29,7 +35,12 @@ export class ClientesService {
   }
 
   getClientes(): Observable<Cliente[]> {
-    return this.http.get<Cliente[]>(this.apiURL);
+    const tokenString = localStorage.getItem('access_token')
+    const token = JSON.parse(tokenString)
+    const headers = {
+      'Authorization': 'Bearer ' + token.access_token
+    }
+    return this.http.get<Cliente[]>(this.apiURL, { headers });
   }
 
   getClientesById(id: number): Observable<Cliente> {
