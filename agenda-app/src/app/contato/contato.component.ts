@@ -20,6 +20,11 @@ export class ContatoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.montarFormulario();
+    this.listarContatos();
+  }
+
+  montarFormulario() {
     this.formulario = this.fb.group({
       nome: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]]
@@ -31,6 +36,12 @@ export class ContatoComponent implements OnInit {
     const contato: Contato = new Contato(formValues.nome, formValues.email);
     this.service.save(contato).subscribe(resposta => {
       this.contatos.push(resposta)
+    })
+  }
+
+  listarContatos() {
+    this.service.list().subscribe(response => {
+      this.contatos = response;
     })
   }
 
