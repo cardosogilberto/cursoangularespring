@@ -18,6 +18,7 @@ import { ContatoComponent } from './contato/contato.component';
 import { ContatoService } from './contato.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ContatoDetalheComponent } from './contato-detalhe/contato-detalhe.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ContatoDetalheComponent } from './contato-detalhe/contato-detalhe.compo
     MatCardModule,
     MatDialogModule,
     MatPaginatorModule,
+    MatSnackBarModule,
     HttpClientModule,
     ReactiveFormsModule,
     BrowserAnimationsModule
