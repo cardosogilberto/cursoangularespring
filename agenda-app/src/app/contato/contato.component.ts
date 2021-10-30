@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { ContatoService } from '../contato.service';
 import { Contato } from './contato';
 
@@ -42,6 +43,12 @@ export class ContatoComponent implements OnInit {
   listarContatos() {
     this.service.list().subscribe(response => {
       this.contatos = response;
+    })
+  }
+
+  favoritar(contato: Contato) {
+    this.service.favourite(contato).subscribe(response => {
+      contato.favorito = !contato.favorito;
     })
   }
 
